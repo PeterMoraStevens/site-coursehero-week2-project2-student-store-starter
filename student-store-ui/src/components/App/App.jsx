@@ -1,10 +1,10 @@
-import { react, useState, useEffect } from "react"
+import { React, useState, useEffect } from "react"
 import { BrowserRouter } from 'react-router-dom'
 import { axios } from 'axios'
 import Navbar from "../Navbar/Navbar"
 import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
-// import Footer from "../Footer/Footer"
+import Footer from "../Footer/Footer"
 import Hero from "../Hero/Hero"
 import { navLinks, footerLinks } from "../../constants"
 import "./App.css"
@@ -23,29 +23,27 @@ const [currentCategory, setCurrentCategory] = useState("All Categories")
 const [searchInputValue, setSearchInputValue] = useState("");
 
 const [products, setProducts] = useState([]);
+const [filteredWords, setFilteredWords] = useState([]);
+
+const handleInputChange = (event) => {
+  setSearchInputValue(event.target.value);
+};
+
+const handleFilter = () => {
+  const filtered = products.filter((word) =>
+    word.toLowerCase().includes(inputValue.toLowerCase())
+  );
+  setFilteredWords(filtered);
+};
 
 useEffect(() => {
-  const fetchItems = async () => {
-    setIsFetching(true);
-
-    try {
+  async function fetchItems() {
       const res = await fetch("https://codepath-store-api.herokuapp.com/store");
-      if (res?.data?.products) {
-        console.log(res?.data?.products)
-       await  setProducts(res.data.products);
-      } else {
-        setError("Error fetching products.");
-      }
-    } catch (err) {
-      console.log(err);
-      const message = err?.response?.data?.error?.message;
-      setError(message ?? String(err));
-    } finally {
-      setIsFetching(false);
-    }
-  };
-
+      const data = await res.json()
+      setProducts(data);
+  }
   fetchItems();
+
 }, []);
 
   return (
@@ -54,8 +52,8 @@ useEffect(() => {
         <main>
           <Navbar navLinks={ navLinks }/>
           <Sidebar />
-          <Home itemData={products}/>
-          {/* <Footer footerLinks={ footerLinks }/> */}
+          <Home itemData={products} handleFilter={ handleFilter }  handleOnChange={ handleInputChange } searchTerm = { searchInputValue }/>
+          <Footer footerLinks={ footerLinks }/>
         </main>
       </BrowserRouter>
     </div>
