@@ -14,13 +14,9 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 
 ### Core Features
 
-  <a href="https://www.loom.com/share/043bafce6fa4448ab648ba5bee93188f">
-    <img style="max-width:300px;" src="null">
+ <a href="https://www.loom.com/share/043bafce6fa4448ab648ba5bee93188f">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/043bafce6fa4448ab648ba5bee93188f-with-play.gif">
   </a>
-
-  <a href="https://www.loom.com/share/043bafce6fa4448ab648ba5bee93188f">
-      <img style="max-width:300px;" src="null">
-    </a>
   
 - [x] The website displays header, banner, search, product grid, about, contact, and footer section.
 - [x] The website displays the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store) on initial page load.
