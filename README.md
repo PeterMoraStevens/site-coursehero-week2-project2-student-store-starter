@@ -16,6 +16,7 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
   <a href="https://www.loom.com/share/043bafce6fa4448ab648ba5bee93188f">
     <img style="max-width:300px;" src="null">
   </a>
+  
 - [x] The website displays header, banner, search, product grid, about, contact, and footer section.
 - [x] The website displays the products at the [GET /store endpoint](https://codepath-store-api.herokuapp.com/store) on initial page load.
 - [ ] Users can click on a category (clothing, food, etc.) to filter the product grid by type.
